@@ -55,7 +55,7 @@ objects) from results of database calls, API calls, or page rendering.
 # empty build section
 
 %install
-[ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
+
 mkdir -p $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16
 cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/README.md
 echo -n "%{version}-%{release_prefix}" > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/pkg-version
