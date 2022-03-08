@@ -62,6 +62,7 @@ echo -n "%{version}-%{release_prefix}" > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached
 
 cat << EOF > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman.json
 {
+    "ports" : [],
     "image" : "docker.io/library/memcached:%{version}",
     "startup" : {
         "--user" : [ "root" ],
