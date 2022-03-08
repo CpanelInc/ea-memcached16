@@ -1,2 +1,2 @@
-# ea-container-memcached EA4 container based package
+# ea-memcached16 EA4 container based package
 

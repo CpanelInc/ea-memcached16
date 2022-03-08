@@ -24,12 +24,10 @@ unless ( caller() ) {
 sub _get_required {
     my ($http) = @_;
 
-    my $version = ea4_tool::util::get_docker_hub_newest_release( name => "memcached", namespace => "library", minor => "1.6", increment => 2 );
+    my $version = ea4_tool::util::get_docker_hub_newest_release( name => "memcached", namespace => "library", minor => "1.6" );
 
-# I DO NOT KNOW WHAT TO DO WITH THE REST
-
-    my $name = "apache-tomcat-$version.tar.gz";
-    my $url  = "https://downloads.apache.org/tomcat/tomcat-10/v$version/bin/$name";
+    my $name = "$version.tar.gz";
+    my $url  = "https://github.com/memcached/memcached/archive/refs/tags/$name";
 
     return ( $version, $url, $name );
 }
@@ -37,20 +35,7 @@ sub _get_required {
 sub _add_sum {
     my ( $http, $hr ) = @_;
 
-    my $checksum_url = "https://www.apache.org/dist/tomcat/tomcat-10/v$hr->{version}/bin/$hr->{tarball}{name}.sha512";
-    my $res          = $http->get($checksum_url);
-    if ( !$res->{success} ) {
-        die "Could not GET tomcat 10.0 SHASUMS page ($res->{status} $res->{reason})\n";
-    }
-
-    my $name     = $hr->{tarball}{name};
-    my $checksum = ( $res->{content} =~ /^((?i)[0-9a-f]+)\s+\Q*$name\E$/m )[0];
-    unless ($checksum) {
-        die "No checksum for $name at $checksum_url:\nContent: $res->{content}\n";
-    }
-
-    $hr->{tarball}{sum}{hex}  = $checksum;
-    $hr->{tarball}{sum}{type} = "sha512";
+    # github does not currently have a way to get the sum
 
     return;
 }

@@ -23,7 +23,7 @@
 %global debug_package %{nil}
 %endif
 
-Name:    ea-container-memcached
+Name:    ea-memcached16
 Vendor:  cPanel, Inc.
 Summary: Memcached
 Version: 1.6.14
@@ -57,15 +57,15 @@ objects) from results of database calls, API calls, or page rendering.
 
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
-mkdir -p $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached
-cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached/ea-podman-local-dir-setup
-cp %{SOURCE2} $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached/README.md
-echo -n "%{version}-%{release_prefix}" > $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached/pkg-version
+mkdir -p $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16
+cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
+cp %{SOURCE2} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/README.md
+echo -n "%{version}-%{release_prefix}" > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/pkg-version
 
-cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached/ea-podman-local-dir-setup
-cp %{SOURCE2} $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached/README.md
+cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
+cp %{SOURCE2} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/README.md
 
-cat << EOF > $RPM_BUILD_ROOT/opt/cpanel/ea-container-memcached/ea-podman.json
+cat << EOF > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman.json
 {
     "image" : "docker.io/library/memcached:%{version}",
     "startup" : {
@@ -80,11 +80,11 @@ EOF
 
 %files
 %defattr(-,root,root,-)
-/opt/cpanel/ea-container-memcached
-%attr(0655,root,root) /opt/cpanel/ea-container-memcached
-%attr(0755,root,root) /opt/cpanel/ea-container-memcached/ea-podman-local-dir-setup
-%attr(0644,root,root) /opt/cpanel/ea-container-memcached/ea-podman.json
-%attr(0644,root,root) /opt/cpanel/ea-container-memcached/README.md
+/opt/cpanel/ea-memcached16
+%attr(0655,root,root) /opt/cpanel/ea-memcached16
+%attr(0755,root,root) /opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
+%attr(0644,root,root) /opt/cpanel/ea-memcached16/ea-podman.json
+%attr(0644,root,root) /opt/cpanel/ea-memcached16/README.md
 
 %changelog
 * Wed Mar 04 2022 Julian Brown <julian.brown@cpanel.net> - 1.6.14-1
