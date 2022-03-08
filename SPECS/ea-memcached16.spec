@@ -34,8 +34,7 @@ License: Memcached
 Group:   System Environment/Daemons
 URL: https://github.com/memcached/memcached/wiki
 
-Source1: ea-podman-local-dir-setup
-Source2: README.md
+Source1: README.md
 
 # if I do not have autoreq=0, rpm build will recognize that the ea_
 # scripts need perl and some Cpanel pm's to be on the disk.
@@ -58,12 +57,8 @@ objects) from results of database calls, API calls, or page rendering.
 %install
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
 mkdir -p $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16
-cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
-cp %{SOURCE2} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/README.md
+cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/README.md
 echo -n "%{version}-%{release_prefix}" > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/pkg-version
-
-cp %{SOURCE1} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
-cp %{SOURCE2} $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/README.md
 
 cat << EOF > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman.json
 {
@@ -80,13 +75,8 @@ EOF
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,-)
+%defattr(0644,root,root,-)
 /opt/cpanel/ea-memcached16
-%attr(0755,root,root) /opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
-%attr(0644,root,root) /opt/cpanel/ea-memcached16/ea-podman.json
-%attr(0644,root,root) /opt/cpanel/ea-memcached16/README.md
-%attr(0644,root,root) /opt/cpanel/ea-memcached16/pkg-version
-
 
 %changelog
 * Wed Mar 04 2022 Julian Brown <julian.brown@cpanel.net> - 1.6.14-1
