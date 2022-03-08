@@ -69,8 +69,9 @@ cat << EOF > $RPM_BUILD_ROOT/opt/cpanel/ea-memcached16/ea-podman.json
 {
     "image" : "docker.io/library/memcached:%{version}",
     "startup" : {
-        "-v" : [ "socket_dir:/socket_dir" ],
-        "--entrypoint" : [ "[\"/entrypoint.sh\", \"-s\", \"/socket_dir/memcached.sock\"]" ]
+        "--user" : [ "root" ],
+        "-v"     : [ ":/socket_dir" ],
+        "--entrypoint" : [ "[\"/entrypoint.sh\",\"-u\",\"root\",\"-s\",\"/socket_dir/memcached.sock\"]" ]
     }
 }
 EOF
