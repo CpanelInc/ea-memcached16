@@ -82,10 +82,11 @@ EOF
 %files
 %defattr(-,root,root,-)
 /opt/cpanel/ea-memcached16
-%attr(0655,root,root) /opt/cpanel/ea-memcached16
 %attr(0755,root,root) /opt/cpanel/ea-memcached16/ea-podman-local-dir-setup
 %attr(0644,root,root) /opt/cpanel/ea-memcached16/ea-podman.json
 %attr(0644,root,root) /opt/cpanel/ea-memcached16/README.md
+%attr(0644,root,root) /opt/cpanel/ea-memcached16/pkg-version
+
 
 %changelog
 * Wed Mar 04 2022 Julian Brown <julian.brown@cpanel.net> - 1.6.14-1
