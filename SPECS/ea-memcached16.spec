@@ -35,6 +35,7 @@ Group:   System Environment/Daemons
 URL: https://github.com/memcached/memcached/wiki
 
 Source1: README.md
+Source2: pkg.prerm
 
 # if I do not have autoreq=0, rpm build will recognize that the ea_
 # scripts need perl and some Cpanel pm's to be on the disk.
@@ -74,6 +75,10 @@ EOF
 
 %clean
 [ "$RPM_BUILD_ROOT" != "/" ] && rm -rf %{buildroot}
+
+%preun
+
+%include %{SOURCE2}
 
 %files
 %defattr(0644,root,root,-)
