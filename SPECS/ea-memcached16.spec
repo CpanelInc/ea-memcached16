@@ -19,16 +19,12 @@
 %global with_systemd 0
 %endif
 
-%if 0%{?rhel} >= 8
-%global debug_package %{nil}
-%endif
-
 Name:    ea-memcached16
 Vendor:  cPanel, Inc.
 Summary: Memcached
 Version: 1.6.14
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4572 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release: %{release_prefix}%{?dist}.cpanel
 License: Memcached
 Group:   System Environment/Daemons
@@ -85,6 +81,9 @@ EOF
 /opt/cpanel/ea-memcached16
 
 %changelog
+* Mon May 08 2023 Julian Brown <julian.brown@cpanel.net> - 1.6.14-2
+- ZC-10936: Clean up Makefile and remove debug-package-nil
+
 * Wed Mar 04 2022 Julian Brown <julian.brown@cpanel.net> - 1.6.14-1
 - ZC-8430: Add container based memcached
 
