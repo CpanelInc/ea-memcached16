@@ -30,6 +30,7 @@ License: Memcached
 Group:   System Environment/Daemons
 URL: https://github.com/memcached/memcached/wiki
 
+Source0: %{version}.tar.gz
 Source1: README.md
 Source2: pkg.prerm
 
