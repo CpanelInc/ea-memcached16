@@ -1,4 +1,5 @@
 {
+    "ignore_build": true,
     "adjust_install_file_src" : [
         ["^.*/([^/]+)$", "./opt/cpanel/ea-memcached16/$1"]
     ],
