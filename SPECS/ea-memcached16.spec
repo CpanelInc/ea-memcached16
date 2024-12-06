@@ -22,9 +22,9 @@
 Name:    ea-memcached16
 Vendor:  cPanel, Inc.
 Summary: Memcached
-Version: 1.6.14
+Version: 1.6.33
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4572 for more details
-%define release_prefix 2
+%define release_prefix 1
 Release: %{release_prefix}%{?dist}.cpanel
 License: Memcached
 Group:   System Environment/Daemons
@@ -82,6 +82,9 @@ EOF
 /opt/cpanel/ea-memcached16
 
 %changelog
+* Fri Dec 06 2024 Cory McIntire <cory@cpanel.net> - 1.6.33-1
+- EA-12600: Update ea-memcached16 from v1.6.14 to v1.6.33
+
 * Mon May 08 2023 Julian Brown <julian.brown@cpanel.net> - 1.6.14-2
 - ZC-10936: Clean up Makefile and remove debug-package-nil
 
