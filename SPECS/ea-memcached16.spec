@@ -83,7 +83,7 @@ EOF
 
 %changelog
 * Wed May 20 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 1.6.42-1
-- EA-13445: Update ea-memcached16 from v1.6.41 to v1.6.42
+- EA-13445: Update ea-memcached16 from v1.6.41 to v1.6.42 (CVE-2026-47783, CVE-2026-47784)
 
 * Sat Mar 07 2026 Cory McIntire <cory.mcintire@webpros.com> - 1.6.41-1
 - EA-13366: Update ea-memcached16 from v1.6.40 to v1.6.41
