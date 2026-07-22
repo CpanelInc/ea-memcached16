@@ -22,7 +22,7 @@
 Name:    ea-memcached16
 Vendor:  cPanel, Inc.
 Summary: Memcached
-Version: 1.6.44
+Version: 1.6.45
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4572 for more details
 %define release_prefix 1
 Release: %{release_prefix}%{?dist}.cpanel
@@ -82,6 +82,9 @@ EOF
 /opt/cpanel/ea-memcached16
 
 %changelog
+* Wed Jul 22 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 1.6.45-1
+- EA-13508: Update ea-memcached16 from v1.6.44 to v1.6.45
+
 * Thu Jul 09 2026 EA4 Update Bot <cory.mcintire@webpros.com> - 1.6.44-1
 - EA-13491: Update ea-memcached16 from v1.6.43 to v1.6.44
 
